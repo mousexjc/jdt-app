@@ -15,4 +15,3 @@ java-version=1.8
     ajax
     validator
 }
-8.log
