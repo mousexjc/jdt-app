@@ -2,6 +2,7 @@ package cn.chinajdt.controller.demo;
 
 import cn.chinajdt.model.demo.SysUser;
 import cn.chinajdt.service.demo.SysUserService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +29,8 @@ public class SysuserController{
         _user.setId("112");
         userService.insert( _user ) ;
         _mv.addObject("name","Jacky") ;
+        Logger _log = Logger.getLogger(this.getClass()) ;
+        _log.info("==================hahaha~~ LOG SUCCESS!!!") ;
         return _mv ;
     }
 
