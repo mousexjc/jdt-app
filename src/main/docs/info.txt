@@ -7,7 +7,7 @@ java-version=1.8
 2.fileUpload download
 3.authority
 4.menu
-5.html template
+5.web template
 6.xsl export
 7.js {
     datePicker
@@ -15,5 +15,4 @@ java-version=1.8
     ajax
     validator
 }
-8.log
-9.cache
+8.cache
