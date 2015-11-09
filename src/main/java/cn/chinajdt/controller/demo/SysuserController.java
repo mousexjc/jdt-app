@@ -27,7 +27,7 @@ public class SysuserController{
         ModelAndView _mv = new ModelAndView("demo/index") ;
         SysUser _user = new SysUser() ;
         _user.setId("112");
-        userService.insert( _user ) ;
+//        userService.insert( _user ) ;
         _mv.addObject("name","Jacky") ;
         Logger _log = Logger.getLogger(this.getClass()) ;
         _log.info("==================hahaha~~ LOG SUCCESS!!!") ;
