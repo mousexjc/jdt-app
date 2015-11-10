@@ -31,6 +31,7 @@ public class SysuserController{
         _mv.addObject("name","Jacky") ;
         Logger _log = Logger.getLogger(this.getClass()) ;
         _log.info("==================hahaha~~ LOG SUCCESS!!!") ;
+//        _mv.addObject("CREATE_HTML",false) ;
         return _mv ;
     }
 

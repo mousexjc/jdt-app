@@ -1,0 +1,2 @@
+<script type="text/javascript" src="${springMacroRequestContext.contextPath}/resources/js/common.js"></script>
+<link rel="stylesheet" type="text/css" href="${springMacroRequestContext.contextPath}/resources/css/main.css" />
