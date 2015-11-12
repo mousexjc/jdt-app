@@ -1,0 +1,36 @@
+2015-11-12 12:39:25 INFO : org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started
+2015-11-12 12:39:26 INFO : org.springframework.web.context.support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Thu Nov 12 12:39:26 CST 2015]; root of context hierarchy
+2015-11-12 12:39:26 INFO : org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-core-config.xml]
+2015-11-12 12:39:26 INFO : org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [dbconfig/mybatis-spring-config.xml]
+2015-11-12 12:39:26 INFO : org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [springconfig/spring-view.xml]
+2015-11-12 12:39:27 INFO : org.springframework.beans.factory.config.PropertyPlaceholderConfigurer - Loading properties file from class path resource [dbconfig/dbconfig.properties]
+2015-11-12 12:39:27 ERROR: com.alibaba.druid.pool.DruidAbstractDataSource - maxIdle is deprecated
+2015-11-12 12:39:27 INFO : com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2015-11-12 12:39:28 INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/sysuser/index]}" onto public org.springframework.web.servlet.ModelAndView cn.chinajdt.controller.demo.SysuserController.index(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2015-11-12 12:39:28 INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Thu Nov 12 12:39:26 CST 2015]; root of context hierarchy
+2015-11-12 12:39:28 INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: Root WebApplicationContext: startup date [Thu Nov 12 12:39:26 CST 2015]; root of context hierarchy
+2015-11-12 12:39:28 INFO : org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/resources/css/] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2015-11-12 12:39:28 INFO : org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/resources/js/] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
+2015-11-12 12:39:28 INFO : org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+2015-11-12 12:39:29 INFO : org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2015-11-12 12:39:29 INFO : org.springframework.beans.factory.config.PropertiesFactoryBean - Loading properties file from class path resource [freemarkerconfig/freemarkerstatic.properties]
+2015-11-12 12:39:29 INFO : org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3270 ms
+2015-11-12 12:39:29 INFO : org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'spring-servlet': initialization started
+2015-11-12 12:39:29 INFO : org.springframework.web.context.support.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'spring-servlet-servlet': startup date [Thu Nov 12 12:39:29 CST 2015]; parent: Root WebApplicationContext
+2015-11-12 12:39:29 INFO : org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-core-config.xml]
+2015-11-12 12:39:29 INFO : org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [dbconfig/mybatis-spring-config.xml]
+2015-11-12 12:39:29 INFO : org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [springconfig/spring-view.xml]
+2015-11-12 12:39:29 INFO : org.springframework.beans.factory.config.PropertyPlaceholderConfigurer - Loading properties file from class path resource [dbconfig/dbconfig.properties]
+2015-11-12 12:39:29 ERROR: com.alibaba.druid.pool.DruidAbstractDataSource - maxIdle is deprecated
+2015-11-12 12:39:29 INFO : com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2015-11-12 12:39:29 INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/sysuser/index]}" onto public org.springframework.web.servlet.ModelAndView cn.chinajdt.controller.demo.SysuserController.index(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2015-11-12 12:39:29 INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet-servlet': startup date [Thu Nov 12 12:39:29 CST 2015]; parent: Root WebApplicationContext
+2015-11-12 12:39:29 INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet-servlet': startup date [Thu Nov 12 12:39:29 CST 2015]; parent: Root WebApplicationContext
+2015-11-12 12:39:29 INFO : org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/resources/css/] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2015-11-12 12:39:29 INFO : org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/resources/js/] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
+2015-11-12 12:39:29 INFO : org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+2015-11-12 12:39:29 INFO : org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2015-11-12 12:39:29 INFO : org.springframework.beans.factory.config.PropertiesFactoryBean - Loading properties file from class path resource [freemarkerconfig/freemarkerstatic.properties]
+2015-11-12 12:39:29 INFO : org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'spring-servlet': initialization completed in 628 ms
+2015-11-12 12:40:02 INFO : cn.chinajdt.controller.demo.SysuserController - ==================hahaha~~ LOG SUCCESS!!!
+2015-11-12 12:42:20 INFO : cn.chinajdt.controller.demo.SysuserController - ==================hahaha~~ LOG SUCCESS!!!

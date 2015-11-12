@@ -16,7 +16,7 @@
 		</layout>
 	</appender>-->
 	<appender name="filedaily" class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="File" value="logs/chinajdt.log" />
+		<param name="File" value="${jdt.root}/WEB-INF/logs/chinajdt.log" />
 		<param name="ImmediateFlush" value="true" />
 		<param name="Threshold" value="INFO" />
 		<param name="DatePattern" value="'.'yyyy-MM-dd" />

@@ -19,7 +19,7 @@ public class HttpPostSender {
     public static final Integer CONN_TIMEOUT_DEFAULT = 80000;
 
     /**
-     * post 方式请求 http 接口的通用方法
+     * post 鏂瑰紡璇锋眰http鎺ュ彛
      * @return
      * @throws Exception
      */
@@ -47,7 +47,7 @@ public class HttpPostSender {
         	_method.getParams().setContentCharset( (null!=servEncoding && !servEncoding.trim().equals(""))?servEncoding:SERV_ENCODING_DEFAULT);
             int _reqStatus = client.executeMethod(_method);
             if (200 != _reqStatus) {
-                throw new Exception("HTTPPost请求出错：URL:[" + reqUrl + "] 请求状态[" + _reqStatus + "]");
+                throw new Exception("HTTPPost璇锋眰鍑洪敊URL:[" + reqUrl + "]璇锋眰鐘舵�乕" + _reqStatus + "]");
             }
             InputStream _in = _method.getResponseBodyAsStream();
             BufferedReader _reader = new BufferedReader(new InputStreamReader(_in));
@@ -59,7 +59,7 @@ public class HttpPostSender {
             Logger.getLogger(HttpPostSender.class).info("HTTP_LOG:"+ new Gson().toJson(nvps)+"|Result:"+_strBuffer);
             return _strBuffer.toString();
         } catch (IOException e) {
-            throw new Exception("HTTPPost请求出错：URL:[" + reqUrl + "]" + e.toString());
+            throw new Exception("HTTPPost姹傛儏鍑洪敊URL:[" + reqUrl + "]" + e.toString());
         } finally {
             _method.releaseConnection();
         }
