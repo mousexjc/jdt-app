@@ -15,5 +15,7 @@ java-version=1.8
     ajax
     validator
 }
-8.cache
+8.ehcache , read seprate write
+redis
 9.jackson
+
