@@ -23,6 +23,7 @@
         <spring-version>4.2.2.RELEASE</spring-version>
         <aspectj-version>1.8.7</aspectj-version>
         <mybatis-version>3.2.8</mybatis-version>
+        <jackson.core-version>2.6.3</jackson.core-version>
     </properties>
     <dependencies>
         <!-- spring -->
@@ -150,6 +151,33 @@
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
             <version>2.6</version>
+        </dependency>
+        <!-- spring rest -->
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.13</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.core-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.core-version}</version>
+        </dependency>
+        <!-- springMVC fileUpload -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>com.springsource.org.apache.commons.fileupload</artifactId>
+            <version>1.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>com.springsource.org.apache.commons.io</artifactId>
+            <version>1.4.0</version>
         </dependency>
     </dependencies>
     <build>

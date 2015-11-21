@@ -1,6 +1,6 @@
-package cn.chinajdt.dao.demo;
+package cn.chinajdt.bussiness.demo.dao;
 
-import cn.chinajdt.model.demo.SysUser;
+import cn.chinajdt.bussiness.demo.model.SysUser;
 
 public interface SysUserMapper {
     int deleteByPrimaryKey(String id);

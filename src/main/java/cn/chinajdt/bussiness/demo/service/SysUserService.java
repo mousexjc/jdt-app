@@ -1,6 +1,6 @@
-package cn.chinajdt.service.demo;
+package cn.chinajdt.bussiness.demo.service;
 
-import cn.chinajdt.model.demo.SysUser;
+import cn.chinajdt.bussiness.demo.model.SysUser;
 import cn.chinajdt.sys.exception.BsnException;
 
 /**

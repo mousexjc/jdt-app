@@ -4,18 +4,19 @@ java-version=1.8
 
 // ======= TODO
 1.page
-2.fileUpload download
+done 2.fileUpload download
 3.authority
 4.menu
-5.web template
-6.xsl export
-7.js {
+done 5.web template
+wait 6.xsl export
+wait 7.js {
     datePicker
     alert
     ajax
     validator
 }
-8.ehcache , read seprate write
-redis
+8.ehcache , read seprate write redis
 9.jackson
-
+10.encryption MD5
+11.random
+12.API authority

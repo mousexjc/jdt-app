@@ -1,7 +1,7 @@
 package cn.chinajdt.sys.tasks;
 
-import cn.chinajdt.model.demo.SysUser;
-import cn.chinajdt.service.demo.SysUserService;
+import cn.chinajdt.bussiness.demo.model.SysUser;
+import cn.chinajdt.bussiness.demo.service.SysUserService;
 import cn.chinajdt.sys.exception.BsnException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

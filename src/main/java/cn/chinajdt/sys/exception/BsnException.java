@@ -5,8 +5,8 @@ package cn.chinajdt.sys.exception;
  */
 public class BsnException extends Exception {
 
-    public BsnException(){
-
+    public BsnException( String msg){
+        this.msg = msg ;
     }
 
     private int errorType ;

@@ -1,4 +1,26 @@
+<@override name="header" >
+<script type="text/javascript" >
+    <#--
+    $(
+         function(){
+             $.post("/demo/sysuser/index1",{},function(data){
+                         alert(data.username) ;
+                     });
+         }
+    );
+    -->
+</script>
+</@override>
 <@override name="body" >
 ${name},hello ~
+<form action="/demo/sysuser/index3" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" >选择
+    <br/>
+    <input type="text" name="uaername" >
+    <br/>
+    <input type="submit" value="submit" >
+</form>
+    <a href="/demo/sysuser/download">down</a>
+
 </@override>
 <@extends name="/common/template/base.ftl" />

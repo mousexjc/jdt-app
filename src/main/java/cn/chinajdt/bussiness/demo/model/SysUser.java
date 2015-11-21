@@ -1,4 +1,4 @@
-package cn.chinajdt.model.demo;
+package cn.chinajdt.bussiness.demo.model;
 
 import java.util.Date;
 

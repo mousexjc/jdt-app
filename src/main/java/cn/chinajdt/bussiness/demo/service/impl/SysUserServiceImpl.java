@@ -1,8 +1,8 @@
-package cn.chinajdt.service.demo.impl;
+package cn.chinajdt.bussiness.demo.service.impl;
 
-import cn.chinajdt.dao.demo.SysUserMapper;
-import cn.chinajdt.model.demo.SysUser;
-import cn.chinajdt.service.demo.SysUserService;
+import cn.chinajdt.bussiness.demo.dao.SysUserMapper;
+import cn.chinajdt.bussiness.demo.model.SysUser;
+import cn.chinajdt.bussiness.demo.service.SysUserService;
 import cn.chinajdt.sys.exception.BsnException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

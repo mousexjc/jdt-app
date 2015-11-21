@@ -1,6 +1,7 @@
 package cn.chinajdt.service.demo;
 
-import cn.chinajdt.model.demo.SysUser;
+import cn.chinajdt.bussiness.demo.model.SysUser;
+import cn.chinajdt.bussiness.demo.service.SysUserService;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
