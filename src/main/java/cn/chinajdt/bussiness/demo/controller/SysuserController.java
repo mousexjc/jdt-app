@@ -59,6 +59,7 @@ public class SysuserController {
     }
 
     @RequestMapping("download")
+    @ResponseBody
     public ResponseEntity<byte[]> download( HttpServletRequest request ) throws BsnException {
         return FileUtil.getResponseEntity( request ,FileUtil.UPLOAD_DERECTORY_DEFAULT + "IMG_3238.jpg" ) ;
     }
