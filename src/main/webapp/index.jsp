@@ -4,8 +4,8 @@
 <html>
 <body>
 <h2>Hello World!</h2>
-<form action="/demo/sysuser/index" method="post" >
-    <input type="submit" value="go~" >
+<form action="/sys/menu/index" method="post" >
+    <input type="submit" value="菜单管理" >
 </form>
 </body>
 </html>

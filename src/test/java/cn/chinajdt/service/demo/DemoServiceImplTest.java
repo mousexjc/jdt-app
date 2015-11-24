@@ -1,6 +1,6 @@
 package cn.chinajdt.service.demo;
 
-import cn.chinajdt.bussiness.demo.model.SysUser;
+import cn.chinajdt.bussiness.demo.model.Demo;
 import cn.chinajdt.bussiness.demo.service.SysUserService;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,7 +12,7 @@ import java.util.Date;
 /**
  * Created by Jacky on 15/11/7.
  */
-public class SysUserServiceImplTest {
+public class DemoServiceImplTest {
 
     private SysUserService service ;
 
@@ -29,8 +29,8 @@ public class SysUserServiceImplTest {
 
     @Test
     public void testInsert() throws Exception {
-        SysUser _user = new SysUser() ;
-        _user.setId("test");
+        Demo _user = new Demo() ;
+        _user.setId("111");
         _user.setAge(31);
         _user.setCreatetime(new Date());
         _user.setPassword("test");
@@ -41,12 +41,11 @@ public class SysUserServiceImplTest {
 
     @Test
     public void testSelectByPrimaryKey() throws Exception {
-        SysUser _u = service.selectByPrimaryKey("111") ;
+        Demo _u = service.selectByPrimaryKey("111") ;
         System.out.println( _u.getAge() );
     }
 
     @Test
     public void testUpdateByPrimaryKey() throws Exception {
-
     }
 }

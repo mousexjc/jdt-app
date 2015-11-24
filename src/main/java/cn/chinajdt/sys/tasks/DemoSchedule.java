@@ -1,6 +1,6 @@
 package cn.chinajdt.sys.tasks;
 
-import cn.chinajdt.bussiness.demo.model.SysUser;
+import cn.chinajdt.bussiness.demo.model.Demo;
 import cn.chinajdt.bussiness.demo.service.SysUserService;
 import cn.chinajdt.sys.exception.BsnException;
 import org.apache.log4j.Logger;
@@ -36,7 +36,7 @@ public class DemoSchedule {
      */
     @Scheduled( fixedRate = 60*60*1000 )
     public void demoTask() throws BsnException {
-        SysUser _user = userService.selectByPrimaryKey("111");
+        Demo _user = userService.selectByPrimaryKey("111");
         System.out.println("task runs ....." + _user.getUsername() );
         log.info("Demo Task runs successfully...congratulations,Jacky~");
     }

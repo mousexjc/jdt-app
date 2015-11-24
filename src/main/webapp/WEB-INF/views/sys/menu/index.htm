@@ -1,0 +1,36 @@
+<@override name="header" >
+<script type="text/javascript" >
+    function toadd(){
+        $("#myform").attr("action" , "/sys/menu/toadd") ;
+        $("#myform").submit() ;
+    }
+</script>
+</@override>
+<@override name="body" >
+
+<form action="/sys/menu/index" method="post" id="myform" >
+    <input type="button" value="insert" onclick="toadd();">
+    <input type="button" value="delete" onclick="todelete();">
+    <br/>
+    <table>
+        <tr>
+            <td>&nbsp;</td>
+            <td>名称</td>
+            <td>顺序</td>
+            <td>控制器</td>
+            <td>URL</td>
+        </tr>
+        <#list menulist as menu >
+        <tr>
+            <td>${menu_index +1 }</td>
+            <td>${menu.mname!''}</td>
+            <td>${menu.morder!0}</td>
+            <td>${menu.controller!''}</td>
+            <td>${menu.linkurl!''}</td>
+        </tr>
+        </#list>
+    </table>
+</form>
+
+</@override>
+<@extends name="/common/template/base.ftl" />

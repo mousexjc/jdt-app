@@ -77,7 +77,7 @@
                 <prop key="template_update_delay">1</prop>
                 <prop key="default_encoding">UTF-8</prop>
                 <prop key="url_escaping_charset">UTF-8</prop>
-                <prop key="number_format">,##0.00</prop>
+                <prop key="number_format">,##0.##</prop>
                 <prop key="classic_compatible">true</prop>
                 <prop key="locale">zh_CN</prop>
                 <prop key="boolean_format">true,false</prop>

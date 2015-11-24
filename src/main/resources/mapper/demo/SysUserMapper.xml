@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="cn.chinajdt.bussiness.demo.dao.SysUserMapper" >
-  <resultMap id="BaseResultMap" type="cn.chinajdt.bussiness.demo.model.SysUser" >
+<mapper namespace="cn.chinajdt.bussiness.demo.dao.DemoMapper" >
+  <resultMap id="BaseResultMap" type="cn.chinajdt.bussiness.demo.model.Demo" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="username" property="username" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
@@ -15,23 +15,23 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
-    from SysUser
+    from demo
     where id = #{id,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
-    delete from SysUser
+    delete from demo
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="cn.chinajdt.bussiness.demo.model.SysUser" >
-    insert into SysUser (id, username, password, 
+  <insert id="insert" parameterType="cn.chinajdt.bussiness.demo.model.Demo" >
+    insert into demo (id, username, password,
       age, salary, createtime
       )
     values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{age,jdbcType=INTEGER}, #{salary,jdbcType=DOUBLE}, #{createtime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="cn.chinajdt.bussiness.demo.model.SysUser" >
-    insert into SysUser
+  <insert id="insertSelective" parameterType="cn.chinajdt.bussiness.demo.model.Demo" >
+    insert into demo
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -73,8 +73,8 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.chinajdt.bussiness.demo.model.SysUser" >
-    update SysUser
+  <update id="updateByPrimaryKeySelective" parameterType="cn.chinajdt.bussiness.demo.model.Demo" >
+    update demo
     <set >
       <if test="username != null" >
         username = #{username,jdbcType=VARCHAR},
@@ -94,8 +94,8 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cn.chinajdt.bussiness.demo.model.SysUser" >
-    update SysUser
+  <update id="updateByPrimaryKey" parameterType="cn.chinajdt.bussiness.demo.model.Demo" >
+    update demo
     set username = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
       age = #{age,jdbcType=INTEGER},
@@ -103,4 +103,18 @@
       createtime = #{createtime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+
+  <select id="all"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from demo
+  </select>
+
+  <select id="queryPage" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from demo
+    limit ${(pageNo-1)*pageSize},#{pageSize}
+  </select>
+
 </mapper>

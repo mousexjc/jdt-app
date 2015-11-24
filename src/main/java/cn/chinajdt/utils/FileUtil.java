@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * Created by Jacky on 15/11/20.
  */
-public class FileUtil {
+public abstract class FileUtil {
 
     public static final String UPLOAD_DERECTORY_DEFAULT = "/resources/upload/" ;
 

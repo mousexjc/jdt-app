@@ -13,8 +13,14 @@
 </@override>
 <@override name="body" >
 ${name},hello ~
+<bR/>
+
+<#list userList as user >
+    ${user.username!''}<br/>
+</#list>
+<br/>
 <form action="/demo/sysuser/index3" method="post" enctype="multipart/form-data">
-    <input type="file" name="file" >选择
+    <input type="file" name="file" >
     <br/>
     <input type="text" name="uaername" >
     <br/>

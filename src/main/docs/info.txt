@@ -3,7 +3,7 @@ java-version=1.8
 
 
 // ======= TODO
-1.page
+wait 1.page
 done 2.fileUpload download
 3.authority
 4.menu

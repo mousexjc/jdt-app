@@ -19,23 +19,40 @@
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
-        <javaModelGenerator targetPackage="cn.chinajdt.model.demo" targetProject="/Users/Jacky/java/jdt/src/main/java">
+        <javaModelGenerator targetPackage="cn.chinajdt.bussiness.sys.model" targetProject="/Users/Jacky/java/jdt/src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
-        <sqlMapGenerator targetPackage="cn.chinajdt.dao.demo" targetProject="/Users/Jacky/java/jdt/src/main/java">
+        <sqlMapGenerator targetPackage="cn.chinajdt.bussiness.sys.dao" targetProject="/Users/Jacky/java/jdt/src/main/java">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
-        <javaClientGenerator type="XMLMAPPER" targetPackage="cn.chinajdt.dao.demo" targetProject="/Users/Jacky/java/jdt/src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="cn.chinajdt.bussiness.sys.dao" targetProject="/Users/Jacky/java/jdt/src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
-        <table schema="jdt" tableName="SysUser" domainObjectName="SysUser" enableCountByExample="false"
+        <table schema="jdt" tableName="sysmenucode" domainObjectName="Sysmenucode" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
             <property name="useActualColumnNames" value="true"/>
         </table>
         <!--
-        <table schema="dispatch" tableName="TEST2" domainObjectName="Test2" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        <table schema="jdt" tableName="sysrole" domainObjectName="Sysrole" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="jdt" tableName="sysmenu" domainObjectName="Sysmenu" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="jdt" tableName="sysrolemenu" domainObjectName="Sysrolemenu" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="jdt" tableName="sysuserrole" domainObjectName="Sysuserrole" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
             <property name="useActualColumnNames" value="true"/>
         </table>
         -->

@@ -2,7 +2,7 @@ package cn.chinajdt.bussiness.demo.model;
 
 import java.util.Date;
 
-public class SysUser {
+public class Demo {
     private String id;
 
     private String username;

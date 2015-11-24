@@ -13,7 +13,7 @@ public @interface AuthorCode {
     int value() default 0 ;
 
     int LOGIN = 0 ;
-    int BLOWER = 1 ;
+    int BLOWSER = 1 ;
     int SEARCH = 2 ;
     int ADD = 3 ;
     int DELE = 4 ;
