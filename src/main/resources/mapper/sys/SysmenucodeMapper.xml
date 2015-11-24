@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.chinajdt.bussiness.sys.dao.SysmenucodeMapper" >
+  <resultMap id="BaseResultMap" type="cn.chinajdt.bussiness.sys.model.Sysmenucode" >
+    <id column="sysmenucodeid" property="sysmenucodeid" jdbcType="VARCHAR" />
+    <result column="sysmenuid" property="sysmenuid" jdbcType="VARCHAR" />
+    <result column="cname" property="cname" jdbcType="VARCHAR" />
+    <result column="ccode" property="ccode" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    sysmenucodeid, sysmenuid, cname, ccode
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sysmenucode
+    where sysmenucodeid = #{sysmenucodeid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sysmenucode
+    where sysmenucodeid = #{sysmenucodeid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.chinajdt.bussiness.sys.model.Sysmenucode" >
+    insert into sysmenucode (sysmenucodeid, sysmenuid, cname, 
+      ccode)
+    values (#{sysmenucodeid,jdbcType=VARCHAR}, #{sysmenuid,jdbcType=VARCHAR}, #{cname,jdbcType=VARCHAR}, 
+      #{ccode,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.chinajdt.bussiness.sys.model.Sysmenucode" >
+    insert into sysmenucode
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sysmenucodeid != null" >
+        sysmenucodeid,
+      </if>
+      <if test="sysmenuid != null" >
+        sysmenuid,
+      </if>
+      <if test="cname != null" >
+        cname,
+      </if>
+      <if test="ccode != null" >
+        ccode,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sysmenucodeid != null" >
+        #{sysmenucodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysmenuid != null" >
+        #{sysmenuid,jdbcType=VARCHAR},
+      </if>
+      <if test="cname != null" >
+        #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="ccode != null" >
+        #{ccode,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.chinajdt.bussiness.sys.model.Sysmenucode" >
+    update sysmenucode
+    <set >
+      <if test="sysmenuid != null" >
+        sysmenuid = #{sysmenuid,jdbcType=VARCHAR},
+      </if>
+      <if test="cname != null" >
+        cname = #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="ccode != null" >
+        ccode = #{ccode,jdbcType=INTEGER},
+      </if>
+    </set>
+    where sysmenucodeid = #{sysmenucodeid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.chinajdt.bussiness.sys.model.Sysmenucode" >
+    update sysmenucode
+    set sysmenuid = #{sysmenuid,jdbcType=VARCHAR},
+      cname = #{cname,jdbcType=VARCHAR},
+      ccode = #{ccode,jdbcType=INTEGER}
+    where sysmenucodeid = #{sysmenucodeid,jdbcType=VARCHAR}
+  </update>
+</mapper>

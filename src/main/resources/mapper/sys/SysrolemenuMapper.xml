@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.chinajdt.bussiness.sys.dao.SysrolemenuMapper" >
+  <resultMap id="BaseResultMap" type="cn.chinajdt.bussiness.sys.model.Sysrolemenu" >
+    <id column="sysrolemenuid" property="sysrolemenuid" jdbcType="VARCHAR" />
+    <result column="sysroleid" property="sysroleid" jdbcType="VARCHAR" />
+    <result column="sysmenuid" property="sysmenuid" jdbcType="VARCHAR" />
+    <result column="sysmenucodeid" property="sysmenucodeid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    sysrolemenuid, sysroleid, sysmenuid ,sysmenucodeid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sysrolemenu
+    where sysrolemenuid = #{sysrolemenuid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sysrolemenu
+    where sysrolemenuid = #{sysrolemenuid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.chinajdt.bussiness.sys.model.Sysrolemenu" >
+    insert into sysrolemenu (sysrolemenuid, sysroleid, sysmenuid, sysmenucodeid
+      )
+    values (#{sysrolemenuid,jdbcType=VARCHAR}, #{sysroleid,jdbcType=VARCHAR}, #{sysmenuid,jdbcType=VARCHAR},#{sysmenucodeid ,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.chinajdt.bussiness.sys.model.Sysrolemenu" >
+    insert into sysrolemenu
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sysrolemenuid != null" >
+        sysrolemenuid,
+      </if>
+      <if test="sysroleid != null" >
+        sysroleid,
+      </if>
+      <if test="sysmenuid != null" >
+        sysmenuid,
+      </if>
+      <if test="sysmenucodeid != null" >
+        sysmenucodeid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sysrolemenuid != null" >
+        #{sysrolemenuid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysroleid != null" >
+        #{sysroleid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysmenuid != null" >
+        #{sysmenuid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysmenucodeid != null" >
+        #{sysmenucodeid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.chinajdt.bussiness.sys.model.Sysrolemenu" >
+    update sysrolemenu
+    <set >
+      <if test="sysroleid != null" >
+        sysroleid = #{sysroleid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysmenuid != null" >
+        sysmenuid = #{sysmenuid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysmenucodeid != null" >
+        sysmenuid = #{sysmenucodeid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where sysrolemenuid = #{sysrolemenuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.chinajdt.bussiness.sys.model.Sysrolemenu" >
+    update sysrolemenu
+    set sysroleid = #{sysroleid,jdbcType=VARCHAR},
+      sysmenuid = #{sysmenuid,jdbcType=VARCHAR},
+      sysmenucodeid = #{sysmenucodeid ,jdbcType=VARCHAR }
+    where sysrolemenuid = #{sysrolemenuid,jdbcType=VARCHAR}
+  </update>
+</mapper>

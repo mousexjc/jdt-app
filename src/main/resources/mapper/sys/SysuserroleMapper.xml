@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.chinajdt.bussiness.sys.dao.SysuserroleMapper" >
+  <resultMap id="BaseResultMap" type="cn.chinajdt.bussiness.sys.model.Sysuserrole" >
+    <id column="sysuserroleid" property="sysuserroleid" jdbcType="VARCHAR" />
+    <result column="sysuserid" property="sysuserid" jdbcType="VARCHAR" />
+    <result column="sysroleid" property="sysroleid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    sysuserroleid, sysuserid, sysroleid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sysuserrole
+    where sysuserroleid = #{sysuserroleid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sysuserrole
+    where sysuserroleid = #{sysuserroleid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.chinajdt.bussiness.sys.model.Sysuserrole" >
+    insert into sysuserrole (sysuserroleid, sysuserid, sysroleid
+      )
+    values (#{sysuserroleid,jdbcType=VARCHAR}, #{sysuserid,jdbcType=VARCHAR}, #{sysroleid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.chinajdt.bussiness.sys.model.Sysuserrole" >
+    insert into sysuserrole
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sysuserroleid != null" >
+        sysuserroleid,
+      </if>
+      <if test="sysuserid != null" >
+        sysuserid,
+      </if>
+      <if test="sysroleid != null" >
+        sysroleid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sysuserroleid != null" >
+        #{sysuserroleid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysuserid != null" >
+        #{sysuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysroleid != null" >
+        #{sysroleid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.chinajdt.bussiness.sys.model.Sysuserrole" >
+    update sysuserrole
+    <set >
+      <if test="sysuserid != null" >
+        sysuserid = #{sysuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="sysroleid != null" >
+        sysroleid = #{sysroleid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where sysuserroleid = #{sysuserroleid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.chinajdt.bussiness.sys.model.Sysuserrole" >
+    update sysuserrole
+    set sysuserid = #{sysuserid,jdbcType=VARCHAR},
+      sysroleid = #{sysroleid,jdbcType=VARCHAR}
+    where sysuserroleid = #{sysuserroleid,jdbcType=VARCHAR}
+  </update>
+</mapper>
