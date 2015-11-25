@@ -79,4 +79,29 @@
       ccode = #{ccode,jdbcType=INTEGER}
     where sysmenucodeid = #{sysmenucodeid,jdbcType=VARCHAR}
   </update>
+
+  <select id="listByMenuid" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select
+    <include refid="Base_Column_List" />
+    from sysmenucode
+    where sysmenuid = #{menuid,jdbcType=VARCHAR }
+    ORDER BY ccode
+  </select>
+
+  <delete id="deleteCodes" parameterType="java.lang.String" >
+    delete from sysmenucode
+    where sysmenucodeid in
+    <foreach collection="array" item="idArr" open="(" close=")" separator="," >
+      #{idArr}
+    </foreach>
+  </delete>
+
+  <delete id="deleCodesByMenuid" parameterType="java.lang.String" >
+    delete from sysmenucode
+    where sysmenuid in
+    <foreach collection="array" item="menuidArr" open="(" close=")" separator="," >
+      #{menuidArr}
+    </foreach>
+  </delete>
+
 </mapper>

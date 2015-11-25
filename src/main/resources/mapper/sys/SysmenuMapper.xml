@@ -11,9 +11,10 @@
     <result column="morder" property="morder" jdbcType="INTEGER" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
     <result column="isdelete" property="isdelete" jdbcType="INTEGER" />
+    <result column="isshow" property="isshow" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    sysmenuid, mname, parentid, controller, linkurl, logo, morder, remark, isdelete
+    sysmenuid, mname, parentid, controller, linkurl, logo, morder, remark, isdelete ,isshow
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -28,10 +29,10 @@
   <insert id="insert" parameterType="cn.chinajdt.bussiness.sys.model.Sysmenu" >
     insert into sysmenu (sysmenuid, mname, parentid,
       controller, linkurl, logo, 
-      morder, remark, isdelete )
+      morder, remark, isdelete ,isshow )
     values (#{sysmenuid,jdbcType=VARCHAR}, #{mname,jdbcType=VARCHAR}, #{parentid,jdbcType=VARCHAR},
       #{controller,jdbcType=VARCHAR}, #{linkurl,jdbcType=VARCHAR}, #{logo,jdbcType=VARCHAR}, 
-      #{morder,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{isdelete,jdbcType=INTEGER} )
+      #{morder,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{isdelete,jdbcType=INTEGER},#{isshow ,jdbcType=INTEGER} )
   </insert>
   <insert id="insertSelective" parameterType="cn.chinajdt.bussiness.sys.model.Sysmenu" >
     insert into sysmenu
@@ -63,6 +64,9 @@
       <if test="isdelete != null" >
         isdelete,
       </if>
+      <if test="isshow != null" >
+        isshow,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="sysmenuid != null" >
@@ -91,6 +95,9 @@
       </if>
       <if test="isdelete != null" >
         #{isdelete,jdbcType=INTEGER},
+      </if>
+      <if test="isshow != null" >
+        #{isshow,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -121,6 +128,9 @@
       <if test="isdelete != null" >
         isdelete = #{isdelete,jdbcType=INTEGER},
       </if>
+      <if test="isshow != null" >
+        isshow = #{isshow,jdbcType=INTEGER},
+      </if>
     </set>
     where sysmenuid = #{sysmenuid,jdbcType=VARCHAR}
   </update>
@@ -133,7 +143,8 @@
       logo = #{logo,jdbcType=VARCHAR},
       morder = #{morder,jdbcType=INTEGER},
       remark = #{remark,jdbcType=VARCHAR},
-      isdelete = #{isdelete,jdbcType=INTEGER}
+      isdelete = #{isdelete,jdbcType=INTEGER},
+      isshow = #{isshow,jdbcType=INTEGER}
     where sysmenuid = #{sysmenuid,jdbcType=VARCHAR}
   </update>
 
@@ -141,6 +152,18 @@
     select
     <include refid="Base_Column_List" />
     from sysmenu
+    <if test="parentid != null" >
+      where parentid = #{ parentid , jdbcType=VARCHAR }
+    </if>
     limit ${(pageno-1)*pagesize},#{pagesize}
   </select>
+
+  <delete id="deleteMenus" parameterType="java.lang.String" >
+    delete from sysmenu
+    where sysmenuid in
+     <foreach collection="array" item="idArr" open="(" close=")" separator="," >
+      #{idArr}
+     </foreach>
+  </delete>
+
 </mapper>

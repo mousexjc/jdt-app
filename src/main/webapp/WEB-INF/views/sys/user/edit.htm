@@ -1,0 +1,65 @@
+<@override name="header" >
+<script type="text/javascript" >
+    function edit(){
+        $.post("edit",$("#myform").serialize(),function(data){
+            if(data.result==1) alert("修改成功~") ;
+            window.parent.location.reload() ;
+        });
+    }
+
+</script>
+</@override>
+<@override name="body" >
+
+<form action="" method="post" id="myform" >
+    <input type="hidden" name="sysuserid" value="${user.sysuserid}">
+    <table>
+        <tr>
+            <td>用户名</td>
+            <td><input type="text" name="username" value="${user.username}" ></td>
+        </tr>
+        <tr>
+            <td>密码</td>
+            <td><input type="text" name="password" value="${user.password}" ></td>
+        </tr>
+        <tr>
+            <td>真名</td>
+            <td><input type="text" name="realname" value="${user.realname}" ></td>
+        </tr>
+        <tr>
+            <td>手机</td>
+            <td><input type="text" name="mobile" value="${user.mobile}" ></td>
+        </tr>
+        <tr>
+            <td>电子邮件</td>
+            <td><input type="text" name="email" value="${user.email}" ></td>
+        </tr>
+        <tr>
+            <td>QQ</td>
+            <td><input type="text" name="qq" value="${user.qq}" ></td>
+        </tr>
+        <tr>
+            <td>性别</td>
+            <td>
+                男<input type="radio" name="sex" value="1" checked="checked">
+                女<input type="radio" name="sex" value="0">
+            </td>
+        </tr>
+        <tr>
+            <td>备注</td>
+            <td><input type="text" name="remark" value="${user.remark}" ></td>
+        </tr>
+        <tr>
+            <td>类型</td>
+            <td><input type="text" name="usertype" value="${user.usertype}" ></td>
+        </tr>
+        <tr>
+            <td>地址</td>
+            <td><input type="text" name="address" value="${user.address}" ></td>
+        </tr>
+    </table>
+    <input type="button" value="edit" onclick="edit();">
+</form>
+
+</@override>
+<@extends name="/common/template/empty.ftl" />

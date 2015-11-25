@@ -26,7 +26,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="cn.chinajdt.controller">
+	<logger name="cn.chinajdt">
 		<level value="info" />
 	</logger>
 	

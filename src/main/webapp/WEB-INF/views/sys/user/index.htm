@@ -1,0 +1,70 @@
+<@override name="header" >
+<script type="text/javascript" >
+    function add(){
+        layer.open({
+            title:'增加用户',
+            type: 2,
+            area: ['700px', '530px'],
+            fix: false,
+            maxmin: true,
+            content: 'toadd?pid=' + Math.random()
+        });
+    }
+
+    function dele( userid ){
+        $.post("/sys/user/delete",{ id :userid },function(data){
+            if(data.result==1) alert("删除成功~") ;
+            window.location.reload() ;
+        });
+    }
+
+    function edit( userid ){
+        layer.open({
+            title:'修改用户',
+            type: 2,
+            area: ['700px', '530px'],
+            fix: false,
+            maxmin: true,
+            content: 'toedit?id='+ userid + '&pid=' + Math.random()
+        });
+    }
+
+</script>
+</@override>
+<@override name="body" >
+
+<form action="/sys/user/index" method="post" id="myform" >
+    <input type="button" value="insert" onclick="add();">
+    <input type="button" value="delete" onclick="dele();">
+    <br/>
+    <table>
+        <tr>
+            <td><input type="checkbox" id="checkAll" ></td>
+            <td>&nbsp;</td>
+            <td>用户名</td>
+            <td>创建时间</td>
+            <td>状态</td>
+            <td>真名</td>
+            <td>电话</td>
+            <td>操作</td>
+        </tr>
+        <#list userlist as user >
+        <tr>
+            <td><input type="checkbox" name="userid" value="${user.sysuserid}" ></td>
+            <td>${user_index +1 }</td>
+            <td>${user.username!''}</td>
+            <td>${user.createtime?string('yyyy-MM-dd HH:mm:ss')}</td>
+            <td>${user.status}</td>
+            <td>${user.realname!''}</td>
+            <td>${user.mobile!''}</td>
+            <td>
+                <a href="javascript:edit('${user.sysuserid}')">修改</a>
+                <a href="javascript:dele('${user.sysuserid}')">删除</a>
+            </td>
+        </tr>
+        </#list>
+    </table>
+</form>
+
+</@override>
+<@extends name="/common/template/base.ftl" />

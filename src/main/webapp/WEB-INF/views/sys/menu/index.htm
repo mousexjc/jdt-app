@@ -1,8 +1,38 @@
 <@override name="header" >
 <script type="text/javascript" >
-    function toadd(){
-        $("#myform").attr("action" , "/sys/menu/toadd") ;
-        $("#myform").submit() ;
+    function toadd( parentid ){
+        if( !parentid ) parentid = "0" ;
+        layer.open({
+            title:'增加菜单',
+            type: 2,
+            area: ['700px', '530px'],
+            fix: false,
+            maxmin: true,
+            content: 'toadd?parentid=' + parentid
+        });
+    }
+
+    function delemenu(){
+        var menuid = "" ;
+        var _selectedIdEle = $("input[name='menuid']:checked");
+        for( var i=0 ; i<_selectedIdEle.length;i++ ){
+            menuid += _selectedIdEle[i].value + ";" ;
+        }
+        $.post("/sys/menu/delete",{menuid:menuid},function(data){
+            if(data.result==1) alert("删除成功~") ;
+            window.location.reload() ;
+        });
+    }
+
+    function addCode( menuid ){
+        layer.open({
+            title:'权限码管理',
+            type: 2,
+            area: ['700px', '530px'],
+            fix: false,
+            maxmin: true,
+            content: '/sys/menucode/index?sysmenuid=' +menuid
+        });
     }
 </script>
 </@override>
@@ -10,23 +40,31 @@
 
 <form action="/sys/menu/index" method="post" id="myform" >
     <input type="button" value="insert" onclick="toadd();">
-    <input type="button" value="delete" onclick="todelete();">
+    <input type="button" value="delete" onclick="delemenu();">
     <br/>
     <table>
         <tr>
+            <td><input type="checkbox" id="checkAll" ></td>
             <td>&nbsp;</td>
             <td>名称</td>
             <td>顺序</td>
             <td>控制器</td>
             <td>URL</td>
+            <td>操作</td>
         </tr>
         <#list menulist as menu >
         <tr>
+            <td><input type="checkbox" name="menuid" value="${menu.sysmenuid}" ></td>
             <td>${menu_index +1 }</td>
             <td>${menu.mname!''}</td>
             <td>${menu.morder!0}</td>
             <td>${menu.controller!''}</td>
             <td>${menu.linkurl!''}</td>
+            <td>
+                <a href="/sys/menu/toedit?id=${menu.sysmenuid}">修改</a>
+                <a href="javascript:addCode('${menu.sysmenuid}');">权限码</a>
+                <a href="javascript:toadd('${menu.sysmenuid}');">增加子菜单</a>
+            </td>
         </tr>
         </#list>
     </table>

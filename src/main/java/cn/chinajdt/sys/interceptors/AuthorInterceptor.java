@@ -35,6 +35,7 @@ public class AuthorInterceptor implements Ordered {
 
     @Around("@annotation(cn.chinajdt.sys.annotation.AuthorCode)")
     public Object around(final ProceedingJoinPoint jp) throws Throwable{
+        /*
         String _controllerName = jp.getTarget().getClass().getName() ;
         MethodSignature _signature = (MethodSignature) jp.getSignature();
         AuthorCode _authorCode = _signature.getMethod().getAnnotation( AuthorCode.class ) ;
@@ -55,6 +56,8 @@ public class AuthorInterceptor implements Ordered {
             }
         }
         throw new BsnException("无权限!") ;
+        */
+        return jp.proceed() ;
     }
 
 }

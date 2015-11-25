@@ -1,0 +1,60 @@
+<@override name="header" >
+<script type="text/javascript" >
+
+    function delecode( sysmenucodeid ){
+        $.post("delete",{sysmenucodeid:sysmenucodeid},function(data){
+            if(data.result==1) alert("删除成功~") ;
+            window.location.reload() ;
+        });
+    }
+
+    function add(){
+        var _sysmenuid = $("#sysmenuid").val() ;
+        var _cname = $("#cname").val() ;
+        var _ccode = $("#ccode").val() ;
+        $.post("add",{sysmenuid:_sysmenuid,cname:_cname,ccode:_ccode},function(data){
+            if(data.result==1) alert("添加成功~") ;
+            window.location.reload() ;
+        });
+    }
+</script>
+</@override>
+<@override name="body" >
+
+<form action="" method="post" id="myform" >
+    <br/>
+    <input type="hidden" id="sysmenuid" value="${sysmenuid}">
+    <table>
+        <tr>
+            <td><input type="checkbox" id="checkAll" ></td>
+            <td>&nbsp;</td>
+            <td>名称</td>
+            <td>权限码</td>
+            <td>操作</td>
+        </tr>
+        <#list codelist as code >
+        <tr>
+            <td><input type="checkbox" name="codeid" value="${code.sysmenucodeid}" ></td>
+            <td>${code_index +1 }</td>
+            <td>${code.cname!''}</td>
+            <td>${code.ccode!''}</td>
+            <td>
+                <a href="#">修改</a>
+                <a href="javascript:delecode('${code.sysmenucodeid}');">删除</a>
+            </td>
+        </tr>
+        </#list>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><input id="cname" ></td>
+            <td><input id="ccode" ></td>
+            <td>
+                <a href="javascript:add();">增加</a>
+            </td>
+        </tr>
+    </table>
+</form>
+
+</@override>
+<@extends name="/common/template/empty.ftl" />

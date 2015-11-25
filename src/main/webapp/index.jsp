@@ -5,7 +5,10 @@
 <body>
 <h2>Hello World!</h2>
 <form action="/sys/menu/index" method="post" >
-    <input type="submit" value="菜单管理" >
+    <a href="/sys/menu/index">菜单管理</a>
+    <br/>
+    <a href="/sys/user/index">用户管理</a>
+    <br/>
 </form>
 </body>
 </html>

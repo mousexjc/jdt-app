@@ -4,6 +4,7 @@ import cn.chinajdt.bussiness.sys.model.Sysmenu;
 import cn.chinajdt.sys.exception.BsnException;
 
 import java.util.List;
+import java.util.Map;
 
 public interface SysmenuService {
 
@@ -13,11 +14,13 @@ public interface SysmenuService {
 
     int insertSelective(Sysmenu record)throws BsnException;
 
-    Sysmenu selectByPrimaryKey(String sysmenuid)throws BsnException;
+    Sysmenu selectByPrimaryKey(String sysmenuid);
 
     int updateByPrimaryKeySelective(Sysmenu record)throws BsnException;
 
     int updateByPrimaryKey(Sysmenu record)throws BsnException;
 
-    List<Sysmenu> list( int pageno , int pagesize )throws BsnException ;
+    List<Sysmenu> list( Map<String,Object> conditions , int pageno , int pagesize ) ;
+
+    void deleteMenus(String[] idArr )throws BsnException ;
 }

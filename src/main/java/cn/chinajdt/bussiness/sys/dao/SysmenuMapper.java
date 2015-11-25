@@ -5,8 +5,10 @@ import cn.chinajdt.sys.exception.BsnException;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface SysmenuMapper {
+
     int deleteByPrimaryKey(String sysmenuid);
 
     int insert(Sysmenu record);
@@ -19,5 +21,7 @@ public interface SysmenuMapper {
 
     int updateByPrimaryKey(Sysmenu record);
 
-    List<Sysmenu> list( @Param("pageno")int pageno , @Param("pagesize")int pagesize ) ;
+    List<Sysmenu> list( Map<String,Object> conditions ) ;
+
+    void deleteMenus(String[] idArr) throws BsnException ;
 }

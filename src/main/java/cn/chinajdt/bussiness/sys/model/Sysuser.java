@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Sysuser implements Serializable {
-    private Long sysuserid;
+    private String sysuserid;
 
     private String username;
 
@@ -50,11 +50,11 @@ public class Sysuser implements Serializable {
 
     private Integer realnameverify;
 
-    public Long getSysuserid() {
+    public String getSysuserid() {
         return sysuserid;
     }
 
-    public void setSysuserid(Long sysuserid) {
+    public void setSysuserid(String sysuserid) {
         this.sysuserid = sysuserid;
     }
 

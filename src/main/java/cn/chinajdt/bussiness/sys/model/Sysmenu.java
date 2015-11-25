@@ -21,6 +21,8 @@ public class Sysmenu implements Serializable {
 
     private Integer isdelete;
 
+    private Integer isshow;
+
     public String getSysmenuid() {
         return sysmenuid;
     }
@@ -93,4 +95,11 @@ public class Sysmenu implements Serializable {
         this.isdelete = isdelete;
     }
 
+    public Integer getIsshow() {
+        return isshow;
+    }
+
+    public void setIsshow(Integer isshow) {
+        this.isshow = isshow;
+    }
 }

@@ -1,16 +1,21 @@
 <@override name="header" >
 <script type="text/javascript" >
     function add(){
-        $("#myform").submit();
+//        $("#myform").submit();
+        $.post("add",$("#myform").serialize(),function(data){
+            if(data.result==1) alert("添加成功~") ;
+            window.parent.location.reload() ;
+        });
     }
+
 </script>
 </@override>
 <@override name="body" >
 
 <form action="/sys/menu/add" method="post" id="myform" >
+    <input type="hidden" name="parentid" value="${parentid}" ><br/>
     菜单名:<input type="text" name="mname" ><br/>
     controller:<input type="text" name="controller" ><br/>
-    上级菜单<input type="text" name="parentid" value="0" ><br/>
     URL:<input type="text" name="linkurl" ><br/>
     LOGO:<input type="text" name="logo" ><br/>
     顺序:<input type="text" name="morder" ><br/>
@@ -19,4 +24,4 @@
 </form>
 
 </@override>
-<@extends name="/common/template/base.ftl" />
+<@extends name="/common/template/empty.ftl" />

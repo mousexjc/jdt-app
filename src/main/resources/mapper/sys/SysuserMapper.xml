@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.chinajdt.bussiness.sys.dao.SysuserMapper" >
   <resultMap id="BaseResultMap" type="cn.chinajdt.bussiness.sys.model.Sysuser" >
-    <id column="sysuserid" property="sysuserid" jdbcType="DECIMAL" />
+    <id column="sysuserid" property="sysuserid" jdbcType="VARCHAR" />
     <result column="username" property="username" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
@@ -31,15 +31,15 @@
     qq, weixin, sex, remark, regdate, auditstatus, usertype, address, image, birthday, 
     identifyid, bussnumber, emailverify, realnameverify
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from sysuser
-    where sysuserid = #{sysuserid,jdbcType=DECIMAL}
+    where sysuserid = #{sysuserid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from sysuser
-    where sysuserid = #{sysuserid,jdbcType=DECIMAL}
+    where sysuserid = #{sysuserid,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="cn.chinajdt.bussiness.sys.model.Sysuser" >
     insert into sysuser (sysuserid, username, password, 
@@ -50,7 +50,7 @@
       address, image, birthday, 
       identifyid, bussnumber, emailverify, 
       realnameverify)
-    values (#{sysuserid,jdbcType=DECIMAL}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+    values (#{sysuserid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
       #{createtime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, #{isdelete,jdbcType=INTEGER}, 
       #{realname,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
       #{qq,jdbcType=VARCHAR}, #{weixin,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, 
@@ -134,7 +134,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="sysuserid != null" >
-        #{sysuserid,jdbcType=DECIMAL},
+        #{sysuserid,jdbcType=VARCHAR},
       </if>
       <if test="username != null" >
         #{username,jdbcType=VARCHAR},
@@ -274,7 +274,7 @@
         realnameverify = #{realnameverify,jdbcType=INTEGER},
       </if>
     </set>
-    where sysuserid = #{sysuserid,jdbcType=DECIMAL}
+    where sysuserid = #{sysuserid,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.chinajdt.bussiness.sys.model.Sysuser" >
     update sysuser
@@ -300,6 +300,17 @@
       bussnumber = #{bussnumber,jdbcType=VARCHAR},
       emailverify = #{emailverify,jdbcType=INTEGER},
       realnameverify = #{realnameverify,jdbcType=INTEGER}
-    where sysuserid = #{sysuserid,jdbcType=DECIMAL}
+    where sysuserid = #{sysuserid,jdbcType=VARCHAR}
   </update>
+
+  <select id="list" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from sysuser
+    where 1=1
+    <if test="isdelete != null" >
+      and isdelete = #{ isdelete , jdbcType=INTEGER }
+    </if>
+    limit ${(pageno-1)*pagesize},#{pagesize}
+  </select>
 </mapper>

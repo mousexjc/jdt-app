@@ -20,3 +20,4 @@ wait 7.js {
 10.encryption MD5
 11.random
 12.API authority
+13. BaseDao

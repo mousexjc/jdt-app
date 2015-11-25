@@ -1,0 +1,23 @@
+<@override name="header" >
+<script type="text/javascript" >
+    function edit(){
+        $("#myform").submit();
+    }
+</script>
+</@override>
+<@override name="body" >
+
+<form action="/sys/menu/edit" method="post" id="myform" >
+    <input type="hidden" name="sysmenuid" value="${menu.sysmenuid}"><br/>
+    菜单名:<input type="text" name="mname" value="${menu.mname!''}"><br/>
+    controller:<input type="text" name="controller" value="${menu.controller!''}" ><br/>
+    上级菜单<input type="text" name="parentid" value="${menu.parentid!0}"><br/>
+    URL:<input type="text" name="linkurl" value="${menu.linkurl!''}"><br/>
+    LOGO:<input type="text" name="logo" value="${menu.logo!''}"><br/>
+    顺序:<input type="text" name="morder" value="${menu.morder!0}"><br/>
+    说明:<input type="text" name="remark" value="${menu.remark!''}"><br/>
+    <input type="button" value="edit" onclick="edit();">
+</form>
+
+</@override>
+<@extends name="/common/template/base.ftl" />

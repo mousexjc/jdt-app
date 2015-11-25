@@ -5,7 +5,7 @@
         <br/>
     </head>
     <body>
-        <@block name="body">body</@block>"
+        <@block name="body">body</@block>
         <br/>
     </body>
     <footer>
