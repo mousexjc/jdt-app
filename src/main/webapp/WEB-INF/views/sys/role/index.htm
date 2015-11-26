@@ -1,0 +1,68 @@
+<@override name="header" >
+<script type="text/javascript" >
+    function add(){
+        layer.open({
+            title:'增加角色',
+            type: 2,
+            area: ['700px', '530px'],
+            fix: false,
+            maxmin: true,
+            content: 'toadd?pid=' + Math.random()
+        });
+    }
+
+    function dele( roleid ){
+        $.post("/sys/role/delete",{ id :roleid },function(data){
+            if(data.result==1) alert("删除成功~") ;
+            window.location.reload() ;
+        });
+    }
+
+    function edit( roleid ){
+        layer.open({
+            title:'修改角色',
+            type: 2,
+            area: ['700px', '530px'],
+            fix: false,
+            maxmin: true,
+            content: 'toedit?id='+ roleid + '&pid=' + Math.random()
+        });
+    }
+
+</script>
+</@override>
+<@override name="body" >
+
+<form action="/sys/role/index" method="post" id="myform" >
+    <input type="button" value="insert" onclick="add();">
+    <input type="button" value="delete" onclick="dele();">
+    <br/>
+    <table>
+        <tr>
+            <td><input type="checkbox" id="checkAll" ></td>
+            <td>&nbsp;</td>
+            <td>角色名</td>
+            <td>创建时间</td>
+            <td>排序</td>
+            <td>备注</td>
+            <td>操作</td>
+        </tr>
+        <#list rolelist as role >
+        <tr>
+            <td><input type="checkbox" name="roleid" value="${role.sysroleid}" ></td>
+            <td>${role_index +1 }</td>
+            <td>${role.rname!''}</td>
+            <td>${role.createtime?string('yyyy-MM-dd HH:mm:ss')}</td>
+            <td>${role.rorder}</td>
+            <td>${role.remark!''}</td>
+            <td>
+                <a href="javascript:edit('${role.sysroleid}')">修改</a>
+                <a href="javascript:dele('${role.sysroleid}')">删除</a>
+            </td>
+        </tr>
+        </#list>
+    </table>
+</form>
+
+</@override>
+<@extends name="/common/template/base.ftl" />

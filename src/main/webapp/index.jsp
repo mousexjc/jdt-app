@@ -3,11 +3,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <body>
-<h2>Hello World!</h2>
+<h2>Welcome to China JDT ~ </h2>
 <form action="/sys/menu/index" method="post" >
     <a href="/sys/menu/index">菜单管理</a>
     <br/>
     <a href="/sys/user/index">用户管理</a>
+    <br/>
+    <a href="/sys/role/index">角色管理</a>
     <br/>
 </form>
 </body>

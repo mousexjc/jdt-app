@@ -3,6 +3,9 @@ package cn.chinajdt.bussiness.sys.service;
 import cn.chinajdt.bussiness.sys.model.Sysrole;
 import cn.chinajdt.sys.exception.BsnException;
 
+import java.util.List;
+import java.util.Map;
+
 public interface SysroleService {
     int deleteByPrimaryKey(String sysroleid) throws BsnException;
 
@@ -15,4 +18,6 @@ public interface SysroleService {
     int updateByPrimaryKeySelective(Sysrole record) throws BsnException;
 
     int updateByPrimaryKey(Sysrole record) throws BsnException;
+
+    List<Sysrole> list( Map<String,Object> conditions , int pageno , int pagesize ) ;
 }

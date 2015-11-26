@@ -68,4 +68,31 @@
       sysroleid = #{sysroleid,jdbcType=VARCHAR}
     where sysuserroleid = #{sysuserroleid,jdbcType=VARCHAR}
   </update>
+
+  <delete id="deleteByUserid" parameterType="java.lang.String" >
+    delete from sysuserrole
+    where sysuserid = #{sysuserid,jdbcType=VARCHAR}
+  </delete>
+
+  <delete id="deleteByRoleid" parameterType="java.lang.String" >
+    delete from sysuserrole
+    where sysroleid = #{sysroleid,jdbcType=VARCHAR}
+  </delete>
+
+  <select id="list" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from sysuserrole
+    where 1=1
+    <if test="sysuserid != null" >
+      and sysuserid = #{ sysuserid , jdbcType=VARCHAR }
+    </if>
+    <if test="sysroleid != null" >
+      and sysroleid = #{ sysroleid , jdbcType=VARCHAR }
+    </if>
+    <if test="pageno !=null and pagesize != null" >
+      limit ${(pageno-1)*pagesize},#{pagesize}
+    </if>
+  </select>
+
 </mapper>

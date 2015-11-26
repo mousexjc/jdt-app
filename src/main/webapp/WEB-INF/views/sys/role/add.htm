@@ -1,0 +1,34 @@
+<@override name="header" >
+<script type="text/javascript" >
+    function add(){
+        $.post("add",$("#myform").serialize(),function(data){
+            if(data.result==1) alert("添加成功~") ;
+            window.parent.location.reload() ;
+        });
+    }
+
+</script>
+</@override>
+<@override name="body" >
+
+<form action="" method="post" id="myform" >
+    <input type="hidden" name="parentid" value="${parentid}" >
+    <table>
+        <tr>
+            <td>角色名</td>
+            <td><input type="text" name="rname" ></td>
+        </tr>
+        <tr>
+            <td>排序</td>
+            <td><input type="text" name="rorder" ></td>
+        </tr>
+        <tr>
+            <td>备注</td>
+            <td><input type="text" name="remark" ></td>
+        </tr>
+    </table>
+    <input type="button" value="insert" onclick="add();">
+</form>
+
+</@override>
+<@extends name="/common/template/empty.ftl" />
