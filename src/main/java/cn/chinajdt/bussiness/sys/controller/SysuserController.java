@@ -1,8 +1,11 @@
 package cn.chinajdt.bussiness.sys.controller;
 
-import cn.chinajdt.bussiness.sys.model.Sysmenu;
+import cn.chinajdt.bussiness.sys.model.Sysrole;
 import cn.chinajdt.bussiness.sys.model.Sysuser;
+import cn.chinajdt.bussiness.sys.model.Sysuserrole;
+import cn.chinajdt.bussiness.sys.service.SysroleService;
 import cn.chinajdt.bussiness.sys.service.SysuserService;
+import cn.chinajdt.bussiness.sys.service.SysuserroleService;
 import cn.chinajdt.sys.ResponseBean;
 import cn.chinajdt.sys.annotation.AuthorCode;
 import cn.chinajdt.sys.exception.BsnException;
@@ -24,6 +27,10 @@ public class SysuserController {
 
     @Autowired
     private SysuserService service ;
+    @Autowired
+    private SysroleService roleService ;
+    @Autowired
+    private SysuserroleService userroleService ;
 
     @RequestMapping("index")
     @AuthorCode( AuthorCode.BLOWSER )
@@ -136,6 +143,22 @@ public class SysuserController {
     public Object delete( String id ) throws BsnException {
         service.deleteByPrimaryKey( id ) ;
         return new ResponseBean( ResponseBean.SUCCESS );
+    }
+
+    @RequestMapping("toauth")
+    @AuthorCode( AuthorCode.AUTHOR )
+    public ModelAndView toauth( String id ) throws BsnException {
+        ModelAndView _mv = new ModelAndView("sys/user/auth");
+        List<Sysrole> _roleList = roleService.list(null,1,10000) ;
+        List<Sysuserrole> _userroleList = userroleService.all( id , null ) ;
+        List<String> _roleidList = new ArrayList<String>() ;
+        for( Sysuserrole _ur : _userroleList ){
+            _roleidList.add( _ur.getSysroleid());
+        }
+        _mv.addObject("allrolelist" , _roleList) ;
+        _mv.addObject("selectedroleidlist" ,  _roleidList ) ;
+        _mv.addObject("sysuserid", id ) ;
+        return _mv ;
     }
 
 }

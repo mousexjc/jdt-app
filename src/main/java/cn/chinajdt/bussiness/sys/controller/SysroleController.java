@@ -14,10 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by Jacky on 15/11/25.
@@ -97,6 +94,24 @@ public class SysroleController {
     @ResponseBody
     public Object delete( String id ) throws BsnException {
         service.deleteByPrimaryKey( id ) ;
+        return new ResponseBean( ResponseBean.SUCCESS );
+    }
+
+    @RequestMapping(value = "authority" ,method = RequestMethod.POST )
+    @AuthorCode( AuthorCode.AUTHOR )
+    @ResponseBody
+    public Object authority( String sysuserid , String sysroleid ) throws BsnException {
+        String[] _useridArr = sysuserid.split(";") ;
+        String[] _roleidArr = sysroleid.split(";") ;
+        service.authority( _useridArr , _roleidArr);
+        return new ResponseBean( ResponseBean.SUCCESS );
+    }
+
+    @RequestMapping(value = "unauthority" ,method = RequestMethod.POST )
+    @AuthorCode( AuthorCode.UNAUTHOR )
+    @ResponseBody
+    public Object unauthority( String sysuserid , String sysroleid ) throws BsnException {
+        service.unauthority( sysuserid,sysroleid);
         return new ResponseBean( ResponseBean.SUCCESS );
     }
 

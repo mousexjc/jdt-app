@@ -7,6 +7,8 @@ import cn.chinajdt.sys.exception.BsnException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("sysuserroleService")
 public class SysuserroleServiceImpl implements SysuserroleService {
 
@@ -35,5 +37,10 @@ public class SysuserroleServiceImpl implements SysuserroleService {
 
     public int updateByPrimaryKey(Sysuserrole record) throws BsnException{
         return dao.updateByPrimaryKey( record ) ;
+    }
+
+    @Override
+    public List<Sysuserrole> all(String userid, String roleid) {
+        return dao.all( userid ,roleid );
     }
 }

@@ -20,4 +20,9 @@ public interface SysroleService {
     int updateByPrimaryKey(Sysrole record) throws BsnException;
 
     List<Sysrole> list( Map<String,Object> conditions , int pageno , int pagesize ) ;
+
+    void authority( String[] useridArr , String[] roleidArr ) throws BsnException ;
+
+    void unauthority( String userid , String roleid ) throws BsnException ;
+
 }

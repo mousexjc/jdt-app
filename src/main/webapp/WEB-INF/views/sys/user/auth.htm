@@ -1,0 +1,50 @@
+<@override name="header" >
+<script type="text/javascript" >
+
+    function dele( sysroleid ){
+        var _sysuserid = $("#sysuserid").val() ;
+        $.post("/sys/role/unauthority",{sysuserid:_sysuserid,sysroleid:sysroleid},function(data){
+            if(data.result==1) alert("取消授权成功~") ;
+            window.location.reload() ;
+        });
+    }
+
+    function auth( sysroleid ){
+        var _sysuserid = $("#sysuserid").val() ;
+        $.post("/sys/role/authority",{sysuserid:_sysuserid,sysroleid:sysroleid},function(data){
+            if(data.result==1) alert("授权成功~") ;
+            window.location.reload() ;
+        });
+    }
+</script>
+</@override>
+<@override name="body" >
+
+<form action="" method="post" id="myform" >
+    <br/>
+    <input type="hidden" id="sysuserid" value="${sysuserid}">
+    <table>
+        <tr>
+            <td><input type="checkbox" id="checkAll" ></td>
+            <td>&nbsp;</td>
+            <td>名称</td>
+            <td>备注</td>
+            <td>操作</td>
+        </tr>
+        <#list allrolelist as role >
+        <tr>
+            <td><input type="checkbox" name="roleid" value="${role.sysroleid}" ></td>
+            <td>${role_index +1 }</td>
+            <td>${role.rname!''}</td>
+            <td>${role.remark!''}</td>
+            <td>
+                <a href="javascript:auth('${role.sysroleid}');">授权</a>
+                <a href="javascript:dele('${role.sysroleid}');">删除</a>
+            </td>
+        </tr>
+        </#list>
+    </table>
+</form>
+
+</@override>
+<@extends name="/common/template/empty.ftl" />

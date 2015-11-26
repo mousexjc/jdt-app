@@ -20,4 +20,7 @@ public @interface AuthorCode {
     int UPDATE = 5 ;
     int AUDIT = 6 ;
     int UNAUDIT = 7 ;
+    int AUTHOR = 8 ;
+    int UNAUTHOR = 9 ;
+
 }
