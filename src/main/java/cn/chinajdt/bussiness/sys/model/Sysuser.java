@@ -4,6 +4,15 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Sysuser implements Serializable {
+
+
+    /** 系统用户 */
+    public static final int SYS = 0 ;
+    /** 前端用户 */
+    public static final int FRONT = 1 ;
+    /** 企业用户 */
+    public static final int SHOP = 2 ;
+
     private String sysuserid;
 
     private String username;

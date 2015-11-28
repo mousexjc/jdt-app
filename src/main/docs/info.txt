@@ -2,22 +2,3 @@ java-version=1.8
 
 
 
-// ======= TODO
-wait 1.page
-done 2.fileUpload download
-3.authority
-4.menu
-done 5.web template
-wait 6.xsl export
-wait 7.js {
-    datePicker
-    alert
-    ajax
-    validator
-}
-8.ehcache , read seprate write redis
-9.jackson
-10.encryption MD5
-11.random
-12.API authority
-13. BaseDao
